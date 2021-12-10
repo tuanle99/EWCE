@@ -1,1 +1,1 @@
-# EWCE
+# Empowering Waste Collection Entrepreneurs
