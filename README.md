@@ -4,5 +4,5 @@ install npm package
 
 ## How to run
 
-run npm i
+run npm i<br />
 run npm start
