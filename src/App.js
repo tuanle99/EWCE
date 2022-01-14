@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 
+//set up path for each pages to navigate to
 function App() {
   return (
     <Router>
