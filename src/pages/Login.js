@@ -9,6 +9,7 @@ function Login() {
   const [checkLogin, setCheckLogin] = useState(false);
   const [loginMessage, setLoginMessage] = useState("");
 
+  //history is use to navigate to the next page
   const history = useHistory();
 
   useEffect(() => {
@@ -28,6 +29,7 @@ function Login() {
     setLoginMessage("");
   };
 
+  //history.push move you to a different url or pages
   const handleLogin = (event) => {
     if (username === "test" && password === "password") {
       setLoginMessage("Login Success");
