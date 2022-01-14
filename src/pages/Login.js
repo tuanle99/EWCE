@@ -43,7 +43,7 @@ function Login() {
   };
 
   return (
-    <Container sx={{ textAlign: "center" }}>
+    <Container sx={{ textAlign: "center" }} spacing={2}>
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <TextField
