@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 
 import {
   AppBar,
@@ -14,13 +14,20 @@ import {
   MenuItem,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Notifications, Home } from "@mui/icons-material";
 
-const pages = ["Tag_1", "Tag_2", "Tag_3"];
+const pages = [
+  "Active Requests",
+  "Collector Status",
+  "Waste Statistics",
+  "Consumer Statistics",
+  "Voucher Dispensary",
+];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Navbar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -99,7 +106,12 @@ function Navbar() {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+                sx={{
+                  my: 2,
+                  color: "white",
+                  display: "block",
+                  fontSize: "12px",
+                }}
               >
                 {page}
               </Button>
