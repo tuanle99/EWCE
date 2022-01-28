@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { useHistory } from "react-router-dom";
 import {
   AppBar,
   Box,
@@ -12,6 +12,7 @@ import {
   Button,
   Tooltip,
   MenuItem,
+  ButtonBase,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Notifications, Home } from "@mui/icons-material";
@@ -26,6 +27,8 @@ const pages = [
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Navbar() {
+  const history = useHistory();
+
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -36,27 +39,60 @@ function Navbar() {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (event) => {
+    if (event.target.localName === "button") {
+      let str = event.target.innerHTML.replace(/<\/?span[^>]*>/g, "");
+      navigate(str);
+    } else {
+      navigate(event.target.innerHTML);
+    }
+
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
+  const handleCloseUserMenu = (event) => {
     setAnchorElUser(null);
   };
+
+  function navigate(link) {
+    switch (link) {
+      case "Active Requests":
+        history.push("/ewce/ActiveRequests");
+        break;
+      case "Collector Status":
+        history.push("/ewce/Collector");
+        break;
+      case "Waste Statistics":
+        history.push("/ewce/WasteStats");
+        break;
+      case "Consumer Statistics":
+        history.push("/ewce/ConsumerStats");
+        break;
+      case "Voucher Dispensary":
+        history.push("/ewce/Voucher");
+        break;
+      default:
+        break;
+    }
+  }
 
   return (
     <AppBar position="static" sx={{ mb: 3 }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+          <ButtonBase
+            onClick={(event) => {
+              history.push("/ewce");
+            }}
           >
-            LOGO
-          </Typography>
-
+            <Typography
+              variant="h6"
+              component="span"
+              sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+            >
+              LOGO
+            </Typography>
+          </ButtonBase>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
