@@ -13,4 +13,4 @@ run npm start
 
 ## Demo Video
 
-[Watch the video](src/other/Video Demo 1.mp4)
+![Watch the video](./src/other/Video_Demo_1.mp4)
