@@ -12,5 +12,3 @@ run npm start
 [Deploy Link](https://tuanle99.github.io/ewce/)
 
 ## Demo Video
-
-![Watch the video](./src/other/Video_Demo_1.mp4)
