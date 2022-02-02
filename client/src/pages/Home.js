@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Box, Grid } from "@mui/material";
 import { PieChart } from "react-minimal-pie-chart";
 import moment from "moment";
+import RequestContainer from "../components/RequestContainer";
 
 function Home() {
   return (
@@ -25,6 +26,19 @@ function Home() {
           />
         </Box>
       </Grid>
+      <Container sx={{ mt: 5 }}>
+        <Grid
+          container
+          direction="column"
+          justifyContent="center"
+          alignItems="center"
+        >
+          Recently Completed Requests
+          <RequestContainer requestor={"George Burdell"} />
+          <RequestContainer requestor={"Slevin Kelevra"} />
+          <RequestContainer requestor={"Christopher Nolan"} />
+        </Grid>
+      </Container>
     </Container>
   );
 }
