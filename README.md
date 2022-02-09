@@ -1,14 +1,23 @@
 # Empowering Waste Collection Entrepreneurs
 
-## Instruction
+In many emerging markets, formal municipal solid waste infrastructure is often inadequate leading to littering and pollution of the environment, with the lowest-income communities often being the most impacted. Informal waste systems exist in these markets, where waste-picker collectives will pick through and collect the more valuable material waste (i.e. metal, more valuable plastics, cardboard) for sale, which leaves behind materials with limited to no value for recycling. These “no-value” materials include single use products and packaging which are not easily recycled. If monetary value could be assigned to these “no-value” materials, then collection would significantly increase and they could be directed to specialized recovery and recycling facilities.
 
-1. cd into the client folder <br />
-2. npm install (install package dependecies)<br />
-3. npm run build (build project)<br />
-4. npm start (start the app locally)<br />
-5. after commit to branch and pull request into the main branch
-6. npm deploy (deploy app to github pages)
+We propose an application to empower waste collection entrepreneurs to create their own collection businesses and manage collection of “no-value” materials (e.g. used absorbent hygiene products, non-recyclable packaging) from consumers within their communities.
 
 ## Deploy link
 
 [Deploy Link](https://tuanle99.github.io/ewce/)
+
+# Release Notes Section
+
+## Version 0.1.0
+
+### New Features
+
+- Navigation Bar
+- Login Page
+- Home Page
+
+### Bug Fixes
+
+- Link fix between navigation bar and pages
