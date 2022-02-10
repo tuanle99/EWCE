@@ -34,9 +34,11 @@ function Home() {
           alignItems="center"
         >
           Recently Completed Requests
-          <RequestContainer requestor={"George Burdell"} />
-          <RequestContainer requestor={"Slevin Kelevra"} />
-          <RequestContainer requestor={"Christopher Nolan"} />
+          <RequestContainer requestor={{ first: "George", last: "Burdell" }} />
+          <RequestContainer requestor={{ first: "Slevin", last: "Kelevra" }} />
+          <RequestContainer
+            requestor={{ first: "Christopher", last: "Nolan" }}
+          />
         </Grid>
       </Container>
     </Container>
