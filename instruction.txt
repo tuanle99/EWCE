@@ -8,7 +8,7 @@ Instruction
 3. npm run build (build project)
 4. npm start (start the app locally)
 5. after commit to branch and pull request into the main branch
-6. npm deploy (deploy app to github pages)
+6. npm run deploy (deploy app to github pages)
 
 all style and component can be found in mui.com
 - you can simply copy the code they have and modify it
