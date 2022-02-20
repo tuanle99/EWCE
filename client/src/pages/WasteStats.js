@@ -37,11 +37,11 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
+
+
 function createData(month, plastic, metal, glass, other, year) {
   return { month, plastic, metal, glass, other, year };
 }
-
-
 
 const wasteData = [
   createData('January', 5, 6, 3, 2, 2021),
@@ -61,17 +61,18 @@ const wasteData = [
 
 function WasteStats() {
   const [value, setValue] = React.useState(new Date());
-  const [rows, setRows] = useState(wasteData.filter(x => (x.year === 2022)));
+  const [rows, setRows] = useState(wasteData.filter(x => (x.year === value.getFullYear())));
   
   return (
     <Container>
+      
       <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DatePicker
             views={['year']}
             label="Year"
             value={value}
             onChange={(newValue) => {
-              setValue(newValue);
+              setValue(new Date(newValue["$d"]));
               let newRows = wasteData.filter(x => (x.year === newValue["$y"]));
               setRows(newRows);
             }}
