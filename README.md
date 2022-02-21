@@ -10,6 +10,17 @@ We propose an application to empower waste collection entrepreneurs to create th
 
 # Release Notes Section
 
+## Version 0.2.0
+
+### New Features
+
+- Active Request Page now switch to Bin Status Page
+- Voucher Page
+- Waste Statistics Page
+- consumer statistics page
+
+### Bug Fixes
+
 ## Version 0.1.0
 
 ### New Features
