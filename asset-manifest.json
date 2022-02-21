@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.js": "/ewce/static/js/main.a813d83d.chunk.js",
-    "main.js.map": "/ewce/static/js/main.a813d83d.chunk.js.map",
+    "main.js": "/ewce/static/js/main.b5aa4c05.chunk.js",
+    "main.js.map": "/ewce/static/js/main.b5aa4c05.chunk.js.map",
     "runtime-main.js": "/ewce/static/js/runtime-main.aa5d9f55.js",
     "runtime-main.js.map": "/ewce/static/js/runtime-main.aa5d9f55.js.map",
-    "static/js/2.7b995d66.chunk.js": "/ewce/static/js/2.7b995d66.chunk.js",
-    "static/js/2.7b995d66.chunk.js.map": "/ewce/static/js/2.7b995d66.chunk.js.map",
+    "static/js/2.b3da6d6c.chunk.js": "/ewce/static/js/2.b3da6d6c.chunk.js",
+    "static/js/2.b3da6d6c.chunk.js.map": "/ewce/static/js/2.b3da6d6c.chunk.js.map",
     "static/js/3.0ed0988c.chunk.js": "/ewce/static/js/3.0ed0988c.chunk.js",
     "static/js/3.0ed0988c.chunk.js.map": "/ewce/static/js/3.0ed0988c.chunk.js.map",
     "index.html": "/ewce/index.html",
     "service-worker.js": "/ewce/service-worker.js",
     "service-worker.js.map": "/ewce/service-worker.js.map",
-    "static/js/2.7b995d66.chunk.js.LICENSE.txt": "/ewce/static/js/2.7b995d66.chunk.js.LICENSE.txt"
+    "static/js/2.b3da6d6c.chunk.js.LICENSE.txt": "/ewce/static/js/2.b3da6d6c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.aa5d9f55.js",
-    "static/js/2.7b995d66.chunk.js",
-    "static/js/main.a813d83d.chunk.js"
+    "static/js/2.b3da6d6c.chunk.js",
+    "static/js/main.b5aa4c05.chunk.js"
   ]
 }
