@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 
 import Login from "./pages/Login";
 import Home from "./pages/Home";
-import ActiveRequests from "./pages/ActiveRequests";
+import BinStatus from "./pages/BinStatus";
 import Collector from "./pages/Collector";
 import Voucher from "./pages/Voucher";
 import WasteStats from "./pages/WasteStats";
@@ -19,7 +19,7 @@ function App() {
       <Switch>
         <Route exact path="/ewce" component={Home} />
         <Route exact path="/ewce/login" component={Login} />
-        <Route exact path="/ewce/ActiveRequests" component={ActiveRequests} />
+        <Route exact path="/ewce/BinStatus" component={BinStatus} />
         <Route exact path="/ewce/Collector" component={Collector} />
         <Route exact path="/ewce/WasteStats" component={WasteStats} />
         <Route exact path="/ewce/ConsumerStats" component={ConsumerStats} />

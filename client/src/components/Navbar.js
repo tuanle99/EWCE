@@ -18,7 +18,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { Notifications, Home } from "@mui/icons-material";
 
 const pages = [
-  "Active Requests",
+  "Bin Status",
   "Collector Status",
   "Waste Statistics",
   "Consumer Statistics",
@@ -56,8 +56,8 @@ function Navbar() {
 
   function navigate(link) {
     switch (link) {
-      case "Active Requests":
-        history.push("/ewce/ActiveRequests");
+      case "Bin Status":
+        history.push("/ewce/BinStatus");
         break;
       case "Collector Status":
         history.push("/ewce/Collector");
