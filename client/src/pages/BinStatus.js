@@ -1,36 +1,31 @@
 import React, { useState } from "react";
-import {
-  Container,
-  Button,
-  Menu,
-  MenuItem
-} from "@mui/material";
+import { Container, Button, Menu, MenuItem } from "@mui/material";
 import BinContainer from "../components/BinContainer";
 
 let dummydata = [
   {
-      binNumber: 3,
-      binType: "Metal",
-      status: "Full",
-      address: "848 ExampleNeighborhood"
-  }, 
+    binNumber: 3,
+    binType: "Metal",
+    status: "Full",
+    address: "848 ExampleNeighborhood",
+  },
 
   {
     binNumber: 5,
     binType: "Plastic",
     status: "Partially Full",
-    address: "123 ExampleStreet"
+    address: "123 ExampleStreet",
   },
 
   {
     binNumber: 2,
     binType: "Paper",
     status: "Empty",
-    address: "240 ExampleRoad"
-  }
+    address: "240 ExampleRoad",
+  },
 ];
 
-function ActiveRequests() {
+function BinStatus() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [list, setList] = useState(dummydata);
   const [sortType, setSortType] = useState("");
@@ -45,9 +40,9 @@ function ActiveRequests() {
     switch (event.currentTarget.type) {
       case "number":
         newList = list.sort((a, b) => {
-          if(a.binNumber < b.binNumber) return -1;
-          if(a.binNumber > b.binNumber) return 1;
-          if(a.binNumber === b.binNumber) return 0;
+          if (a.binNumber < b.binNumber) return -1;
+          if (a.binNumber > b.binNumber) return 1;
+          if (a.binNumber === b.binNumber) return 0;
           return 0;
         });
         setList(newList);
@@ -57,9 +52,9 @@ function ActiveRequests() {
         newList = list.sort((a, b) => {
           let aText = a.binType.toLowerCase();
           let bText = b.binType.toLowerCase();
-          if(aText < bText) return -1;
-          if(aText > bText) return 1;
-          if(aText === bText) return 0;
+          if (aText < bText) return -1;
+          if (aText > bText) return 1;
+          if (aText === bText) return 0;
           return 0;
         });
         setList(newList);
@@ -135,4 +130,4 @@ function ActiveRequests() {
   );
 }
 
-export default ActiveRequests;
+export default BinStatus;

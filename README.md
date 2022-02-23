@@ -10,6 +10,14 @@ We propose an application to empower waste collection entrepreneurs to create th
 
 # Release Notes Section
 
+## Version 0.3.0
+
+### New Features
+
+### Bug Fixes
+
+- change "Active Request" page to "Bin Status" page
+
 ## Version 0.2.0
 
 ### New Features
