@@ -14,6 +14,8 @@ We propose an application to empower waste collection entrepreneurs to create th
 
 ### New Features
 
+- Database creation (see API.js)
+
 ### Bug Fixes
 
 - change "Active Request" page to "Bin Status" page
