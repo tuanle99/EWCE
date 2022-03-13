@@ -15,6 +15,7 @@ We propose an application to empower waste collection entrepreneurs to create th
 ### New Features
 
 - Database creation (see API.js)
+- Updated Home Page
 
 ### Bug Fixes
 
@@ -27,7 +28,7 @@ We propose an application to empower waste collection entrepreneurs to create th
 - Active Request Page now switch to Bin Status Page
 - Voucher Page
 - Waste Statistics Page
-- consumer statistics page
+- Consumer statistics page
 
 ### Bug Fixes
 
