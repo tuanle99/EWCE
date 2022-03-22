@@ -20,6 +20,7 @@ We propose an application to empower waste collection entrepreneurs to create th
 ### Bug Fixes
 
 - change "Active Request" page to "Bin Status" page
+- css clean up
 
 ## Version 0.2.0
 

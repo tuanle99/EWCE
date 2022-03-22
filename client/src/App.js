@@ -17,7 +17,7 @@ function App() {
     <Router>
       <Navbar />
       <Switch>
-        <Route exact path="/ewce" component={Home} />
+        <Route exact path={["/ewce", "/"]} component={Home} />
         <Route exact path="/ewce/login" component={Login} />
         <Route exact path="/ewce/BinStatus" component={BinStatus} />
         <Route exact path="/ewce/Collector" component={Collector} />

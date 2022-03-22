@@ -10,15 +10,20 @@ function Home() {
   const [coordinatorData, setCoordinatorData] = useState();
 
   useEffect(() => {
-    API.getCoordinator()
-      .then((res) => {
-        console.log(res);
-        // setCoordinatorData(res);
-      })
+    API.getCoordinators()
+      .then(
+        (res) => {
+          console.log(res.data);
+          // setCoordinatorData(res);
+        },
+        (error) => {
+          console.log(error);
+        }
+      )
       .catch((err) => {
         console.log(err);
       });
-  });
+  }, []);
 
   return (
     <Container sx={{ mt: 5 }}>

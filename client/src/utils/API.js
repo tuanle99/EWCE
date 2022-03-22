@@ -7,7 +7,7 @@ export default {
     return axios.get("api/coordinator");
   },
   createCoordinator: function () {
-    return axios.get("api/coordinator");
+    return axios.post("api/coordinator");
   },
   getCoordinator: function (id) {
     return axios.get("/api/coordinator/" + id);
@@ -23,7 +23,7 @@ export default {
     return axios.get("api/consumer");
   },
   createConsumer: function () {
-    return axios.get("api/consumer");
+    return axios.post("api/consumer");
   },
   getConsumer: function (id) {
     return axios.get("/api/consumer/" + id);
@@ -39,7 +39,7 @@ export default {
     return axios.get("api/collector");
   },
   createCollector: function () {
-    return axios.get("api/collector");
+    return axios.post("api/collector");
   },
   getCollector: function (id) {
     return axios.get("/api/collector/" + id);
@@ -55,7 +55,7 @@ export default {
     return axios.get("api/bin");
   },
   createBin: function () {
-    return axios.get("api/bin");
+    return axios.post("api/bin");
   },
   getBin: function (id) {
     return axios.get("/api/bin/" + id);
