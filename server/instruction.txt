@@ -1,3 +1,0 @@
-download MAMP
-download robo 3t
-download mongodb
