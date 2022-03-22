@@ -29,3 +29,10 @@ program need to download
 - mamp (free version)
 - robot 3t
 - insomnia or post man
+
+//update instruction 3/21
+(in the root folder)
+npm run build
+npm run develop (start both the front end and the back end)
+**check inside Home.js file to see how to use API call request**
+**all api request is in the utils/API.js file**
