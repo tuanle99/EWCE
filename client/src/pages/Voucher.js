@@ -3,12 +3,10 @@ import {
   Container,
   Autocomplete,
   TextField,
-  Button,
   Menu,
   MenuItem,
 } from "@mui/material";
-import RewardTracker from '../components/RewardTracker';
-
+import RewardTracker from "../components/RewardTracker";
 
 let dummyData = [
   {

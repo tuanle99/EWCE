@@ -15,7 +15,6 @@ import {
   ButtonBase,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Notifications, Home } from "@mui/icons-material";
 
 const pages = [
   "Bin Status",
