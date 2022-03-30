@@ -13,6 +13,7 @@ function Home() {
     API.getCoordinators()
       .then(
         (res) => {
+          console.log(res.data);
           setCoordinatorData(res);
         },
         (error) => {
