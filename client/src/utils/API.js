@@ -12,8 +12,8 @@ export default {
   getCoordinator: function (id) {
     return axios.get("/api/coordinator/" + id);
   },
-  updateCoordinator: function (id) {
-    return axios.put("/api/coordinator/" + id);
+  updateCoordinator: function (id, userData) {
+    return axios.put("/api/coordinator/" + id, userData);
   },
   deleteCoordinator: function (id) {
     return axios.delete("/api/coordinator/" + id);
@@ -28,8 +28,8 @@ export default {
   getConsumer: function (id) {
     return axios.get("/api/consumer/" + id);
   },
-  updateConsumer: function (id) {
-    return axios.put("/api/consumer/" + id);
+  updateConsumer: function (id, userData) {
+    return axios.put("/api/consumer/" + id, userData);
   },
   deleteConsumer: function (id) {
     return axios.delete("/api/consumer/" + id);
@@ -44,8 +44,8 @@ export default {
   getCollector: function (id) {
     return axios.get("/api/collector/" + id);
   },
-  updateCollector: function (id) {
-    return axios.put("/api/collector/" + id);
+  updateCollector: function (id, userData) {
+    return axios.put("/api/collector/" + id, userData);
   },
   deleteCollector: function (id) {
     return axios.delete("/api/collector/" + id);
@@ -60,8 +60,8 @@ export default {
   getBin: function (id) {
     return axios.get("/api/bin/" + id);
   },
-  updateBin: function (id) {
-    return axios.put("/api/bin/" + id);
+  updateBin: function (id, userData) {
+    return axios.put("/api/bin/" + id, userData);
   },
   deleteBin: function (id) {
     return axios.delete("/api/bin/" + id);
