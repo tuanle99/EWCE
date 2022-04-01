@@ -4,10 +4,10 @@ import axios from "axios";
 export default {
   //coordinator
   getCoordinators: function () {
-    return axios.get("api/coordinator");
+    return axios.get("/api/coordinator");
   },
   createCoordinator: function (userData) {
-    return axios.post("api/coordinator", userData);
+    return axios.post("/api/coordinator", userData);
   },
   getCoordinator: function (id) {
     return axios.get("/api/coordinator/" + id);
@@ -20,10 +20,10 @@ export default {
   },
   //consumer
   getConsumers: function () {
-    return axios.get("api/consumer");
+    return axios.get("/api/consumer");
   },
   createConsumer: function (userData) {
-    return axios.post("api/consumer", userData);
+    return axios.post("/api/consumer", userData);
   },
   getConsumer: function (id) {
     return axios.get("/api/consumer/" + id);
@@ -36,10 +36,10 @@ export default {
   },
   //collector
   getCollectors: function () {
-    return axios.get("api/collector");
+    return axios.get("/api/collector");
   },
   createCollector: function (userData) {
-    return axios.post("api/collector", userData);
+    return axios.post("/api/collector", userData);
   },
   getCollector: function (id) {
     return axios.get("/api/collector/" + id);
@@ -52,10 +52,10 @@ export default {
   },
   //bin
   getBins: function () {
-    return axios.get("api/bin");
+    return axios.get("/api/bin");
   },
   createBin: function (userData) {
-    return axios.post("api/bin", userData);
+    return axios.post("/api/bin", userData);
   },
   getBin: function (id) {
     return axios.get("/api/bin/" + id);

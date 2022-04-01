@@ -16,7 +16,7 @@ function Login() {
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <CreateAccountComp />
-            <Grid Item spacing={2} xs={12} sx={{ mt: 2 }}>
+            <Grid item xs={12} sx={{ mt: 2 }}>
               <ButtonBase
                 onClick={() => changeCreateAcc(false)}
                 variant="contained"
@@ -29,7 +29,7 @@ function Login() {
       ) : (
         <Grid container spacing={2}>
           <LoginComp />
-          <Grid Item spacing={2} xs={12} sx={{ mt: 2 }}>
+          <Grid item xs={12} sx={{ mt: 2 }}>
             <ButtonBase
               onClick={() => changeCreateAcc(true)}
               variant="contained"
