@@ -16,6 +16,8 @@ import {
   DatePicker
 } from "@mui/lab"
 import AdapterDayjs from "@mui/lab/AdapterDayjs";
+import API from "../utils/API";
+
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -57,57 +59,67 @@ const wasteData = [
   createData('November', 5, 4, 5, 2, 2021),
   createData('December', 5, 6, 2, 3, 2021),
   createData('January', 6, 4, 3, 3, 2022),
-];   
+];
 
 function WasteStats() {
   const [value, setValue] = React.useState(new Date());
   const [rows, setRows] = useState(wasteData.filter(x => (x.year === value.getFullYear())));
-  
+
   return (
     <Container>
-      
+
       <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <DatePicker
-            views={['year']}
-            label="Year"
-            value={value}
-            onChange={(newValue) => {
-              setValue(new Date(newValue["$d"]));
-              let newRows = wasteData.filter(x => (x.year === newValue["$y"]));
-              setRows(newRows);
-            }}
-            renderInput={(params) => <TextField {...params} helperText={null} />}
-          />
-      </LocalizationProvider>    
+        <DatePicker
+          views={['year']}
+          label="Year"
+          value={value}
+          onChange={(newValue) => {
+            setValue(new Date(newValue["$d"]));
+            API.getBins()
+              .then(
+                (res) => {
+                  let testing = res.data.flatMap(x =>
+                    x.collection_history.map(y => ({ type: x.type, ...y }))
+                  ).filter(x =>
+                    new Date(x.date).getFullYear() === newValue["$y"]
+                    )
+                    console.log(testing);});
+                
+            // .filter(x => (x.last_collected.year === newValue["$y"]));
+            // setRows(newRows);
+          }}
+          renderInput={(params) => <TextField {...params} helperText={null} />}
+        />
+      </LocalizationProvider>
       <Container sx={{ mt: 4 }}>
-      <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 700 }} aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>Month</StyledTableCell>
-            <StyledTableCell align="right">Plastic&nbsp;(cu yd)</StyledTableCell>
-            <StyledTableCell align="right">Metals&nbsp;(cu yd)</StyledTableCell>
-            <StyledTableCell align="right">Glass&nbsp;(cu yd)</StyledTableCell>
-            <StyledTableCell align="right">Other&nbsp;(cu yd)</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.name}>
-              <StyledTableCell component="th" scope="row">
-                {row.month}
-              </StyledTableCell>
-              <StyledTableCell align="right">{row.plastic}</StyledTableCell>
-              <StyledTableCell align="right">{row.metal}</StyledTableCell>
-              <StyledTableCell align="right">{row.glass}</StyledTableCell>
-              <StyledTableCell align="right">{row.other}</StyledTableCell>
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 700 }} aria-label="customized table">
+            <TableHead>
+              <TableRow>
+                <StyledTableCell>Month</StyledTableCell>
+                <StyledTableCell align="right">Plastic&nbsp;(cu yd)</StyledTableCell>
+                <StyledTableCell align="right">Metals&nbsp;(cu yd)</StyledTableCell>
+                <StyledTableCell align="right">Glass&nbsp;(cu yd)</StyledTableCell>
+                <StyledTableCell align="right">Other&nbsp;(cu yd)</StyledTableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows.map((row) => (
+                <StyledTableRow key={row.name}>
+                  <StyledTableCell component="th" scope="row">
+                    {row.month}
+                  </StyledTableCell>
+                  <StyledTableCell align="right">{row.plastic}</StyledTableCell>
+                  <StyledTableCell align="right">{row.metal}</StyledTableCell>
+                  <StyledTableCell align="right">{row.glass}</StyledTableCell>
+                  <StyledTableCell align="right">{row.other}</StyledTableCell>
+                </StyledTableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </Container>
-  </Container>
+    </Container>
   );
 }
 
