@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const collectorSchema = new Schema({
@@ -22,9 +22,9 @@ const collectorSchema = new Schema({
     match: /^(\()?\d{3}(\))?()?\d{3}()\d{4}$/,
   },
   address: { type: String },
-  bin_assign: [{ type: mongoose.Schema.Types.ObjectId, ref: "Bin" }],
+  bin_assign: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Bin' }],
 });
 
-const Collector = mongoose.model("Collector", collectorSchema);
+const Collector = mongoose.model('Collector', collectorSchema);
 
 module.exports = Collector;

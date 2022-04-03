@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const consumerSchema = new Schema({
@@ -27,6 +27,6 @@ const consumerSchema = new Schema({
   total_redeem: { type: Number, required: true },
 });
 
-const Consumer = mongoose.model("Consumer", consumerSchema);
+const Consumer = mongoose.model('Consumer', consumerSchema);
 
 module.exports = Consumer;
