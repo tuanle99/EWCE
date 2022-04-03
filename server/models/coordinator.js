@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const coordinatorSchema = new Schema({
@@ -22,12 +22,14 @@ const coordinatorSchema = new Schema({
     match: /^(\()?\d{3}(\))?()?\d{3}()\d{4}$/,
   },
   address: { type: String },
-  employee_collector: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Collector",
-  },
+  employee_collector: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Collector',
+    },
+  ],
 });
 
-const Coordinator = mongoose.model("Coordinator", coordinatorSchema);
+const Coordinator = mongoose.model('Coordinator', coordinatorSchema);
 
 module.exports = Coordinator;
