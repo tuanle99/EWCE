@@ -69,7 +69,28 @@ function resetData() {
 
 function WasteStats() {
   const [value, setValue] = React.useState(new Date());
+
+
   const [rows, setRows] = useState(yearlyData.map((x) => x));
+  useEffect(() => {
+    API.getBins()
+              .then(
+                (res) => {
+                  let yrData = res.data.flatMap(x =>
+                    x.collection_history.map(y => ({ type: x.type, ...y }))
+                  ).filter(x =>
+                    new Date(x.date).getFullYear() === value.getFullYear()
+                  )
+                  yrData.forEach(element => {
+                    let month = new Date(element.date).getMonth();
+                    let typ = element.type;
+                    let amt = element.amount;
+                    yearlyData[month][typ] = yearlyData[month][typ] + amt;
+                  });
+                  let filterData = yearlyData.map((x) => x);
+                  setRows(filterData);
+  })
+}, []);
 
   return (
     <Container>
