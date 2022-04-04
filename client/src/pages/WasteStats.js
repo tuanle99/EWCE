@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -16,6 +16,8 @@ import {
   DatePicker
 } from "@mui/lab"
 import AdapterDayjs from "@mui/lab/AdapterDayjs";
+import API from "../utils/API";
+
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -37,77 +39,121 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-
-
-function createData(month, plastic, metal, glass, other, year) {
-  return { month, plastic, metal, glass, other, year };
+function createNewData(month, plastic, metal, glass, other) {
+  return { month, plastic, metal, glass, other };
 }
 
-const wasteData = [
-  createData('January', 5, 6, 3, 2, 2021),
-  createData('February', 6, 3, 5, 3, 2021),
-  createData('March', 5, 4, 5, 2, 2021),
-  createData('April', 5, 6, 2, 3, 2021),
-  createData('May', 5, 6, 3, 2, 2021),
-  createData('June', 6, 3, 5, 3, 2021),
-  createData('July', 5, 4, 5, 2, 2021),
-  createData('August', 5, 6, 2, 3, 2021),
-  createData('September', 5, 6, 3, 2, 2021),
-  createData('October', 6, 3, 5, 3, 2021),
-  createData('November', 5, 4, 5, 2, 2021),
-  createData('December', 5, 6, 2, 3, 2021),
-  createData('January', 6, 4, 3, 3, 2022),
-];   
+const yearlyData = [
+  createNewData("January", 0, 0, 0, 0),
+  createNewData("February", 0, 0, 0, 0),
+  createNewData("March", 0, 0, 0, 0),
+  createNewData("April", 0, 0, 0, 0),
+  createNewData("May", 0, 0, 0, 0),
+  createNewData("June", 0, 0, 0, 0),
+  createNewData("July", 0, 0, 0, 0),
+  createNewData("August", 0, 0, 0, 0),
+  createNewData("September", 0, 0, 0, 0),
+  createNewData("October", 0, 0, 0, 0),
+  createNewData("November", 0, 0, 0, 0),
+  createNewData("December", 0, 0, 0, 0)
+]
+
+function resetData() {
+  yearlyData.forEach(element => {
+    element.plastic = 0;
+    element.metal = 0;
+    element.glass = 0;
+    element.other = 0;
+  });
+}
 
 function WasteStats() {
   const [value, setValue] = React.useState(new Date());
-  const [rows, setRows] = useState(wasteData.filter(x => (x.year === value.getFullYear())));
-  
+
+
+  const [rows, setRows] = useState(yearlyData.map((x) => x));
+  useEffect(() => {
+    API.getBins()
+              .then(
+                (res) => {
+                  let yrData = res.data.flatMap(x =>
+                    x.collection_history.map(y => ({ type: x.type, ...y }))
+                  ).filter(x =>
+                    new Date(x.date).getFullYear() === value.getFullYear()
+                  )
+                  yrData.forEach(element => {
+                    let month = new Date(element.date).getMonth();
+                    let typ = element.type;
+                    let amt = element.amount;
+                    yearlyData[month][typ] = yearlyData[month][typ] + amt;
+                  });
+                  let filterData = yearlyData.map((x) => x);
+                  setRows(filterData);
+  })
+}, []);
+
   return (
     <Container>
-      
       <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <DatePicker
-            views={['year']}
-            label="Year"
-            value={value}
-            onChange={(newValue) => {
-              setValue(new Date(newValue["$d"]));
-              let newRows = wasteData.filter(x => (x.year === newValue["$y"]));
-              setRows(newRows);
-            }}
-            renderInput={(params) => <TextField {...params} helperText={null} />}
-          />
-      </LocalizationProvider>    
+        <DatePicker
+          views={['year']}
+          label="Year"
+          value={value}
+          onChange={(newValue) => {
+            setValue(new Date(newValue["$d"]));
+            resetData();
+            API.getBins()
+              .then(
+                (res) => {
+                  let yrData = res.data.flatMap(x =>
+                    x.collection_history.map(y => ({ type: x.type, ...y }))
+                  ).filter(x =>
+                    new Date(x.date).getFullYear() === newValue["$y"]
+                  )
+                  yrData.forEach(element => {
+                    let month = new Date(element.date).getMonth();
+                    let typ = element.type;
+                    let amt = element.amount;
+                    yearlyData[month][typ] = yearlyData[month][typ] + amt;
+
+                  });
+                  let filterData = yearlyData.map((x) => x);
+                  setRows(filterData);
+                })
+          }
+          }
+          renderInput={(params) => <TextField {...params} helperText={null} />}
+        />
+      </LocalizationProvider>
       <Container sx={{ mt: 4 }}>
-      <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 700 }} aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>Month</StyledTableCell>
-            <StyledTableCell align="right">Plastic&nbsp;(cu yd)</StyledTableCell>
-            <StyledTableCell align="right">Metals&nbsp;(cu yd)</StyledTableCell>
-            <StyledTableCell align="right">Glass&nbsp;(cu yd)</StyledTableCell>
-            <StyledTableCell align="right">Other&nbsp;(cu yd)</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.name}>
-              <StyledTableCell component="th" scope="row">
-                {row.month}
-              </StyledTableCell>
-              <StyledTableCell align="right">{row.plastic}</StyledTableCell>
-              <StyledTableCell align="right">{row.metal}</StyledTableCell>
-              <StyledTableCell align="right">{row.glass}</StyledTableCell>
-              <StyledTableCell align="right">{row.other}</StyledTableCell>
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 700 }} aria-label="customized table">
+            <TableHead>
+              <TableRow>
+                <StyledTableCell>Month</StyledTableCell>
+                <StyledTableCell align="right">Plastic&nbsp;</StyledTableCell>
+                <StyledTableCell align="right">Metal&nbsp;</StyledTableCell>
+                <StyledTableCell align="right">Glass&nbsp;</StyledTableCell>
+                <StyledTableCell align="right">Other&nbsp;</StyledTableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows.map((row) => (
+                <StyledTableRow key={row.month}>
+                  <StyledTableCell component="th" scope="row">
+                    {row.month}
+                  </StyledTableCell>
+                  <StyledTableCell align="right">{row.plastic}</StyledTableCell>
+                  <StyledTableCell align="right">{row.metal}</StyledTableCell>
+                  <StyledTableCell align="right">{row.glass}</StyledTableCell>
+                  <StyledTableCell align="right">{row.other}</StyledTableCell>
+                </StyledTableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </Container>
-  </Container>
+    </Container>
   );
 }
 
