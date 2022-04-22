@@ -7,6 +7,7 @@ import {
   FormControlLabel,
   Radio
 } from "@mui/material";
+import API from "../utils/API";
 
 function BinContainer(props) {
   const { binNumber, binType, status, address } = props;

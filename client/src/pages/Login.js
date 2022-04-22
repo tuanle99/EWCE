@@ -21,7 +21,7 @@ function Login() {
                 onClick={() => changeCreateAcc(false)}
                 variant="contained"
               >
-                Alreadt have an account? Click here to login
+                Already have an account? Click here to login
               </ButtonBase>
             </Grid>
           </Grid>
