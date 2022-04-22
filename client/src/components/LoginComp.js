@@ -122,7 +122,7 @@ function LoginComp() {
         break;
     }
 
-    history.push(`/ewce`);
+    history.push(`/ewce/Home`);
   };
 
   const handleLogin = (event) => {
@@ -147,7 +147,6 @@ function LoginComp() {
         <TextField
           id="username_login"
           label="Username"
-          helperText="Enter test"
           onChange={handleUsername}
           onKeyPress={(e) => {
             if (e.key === "Enter") {
@@ -160,7 +159,6 @@ function LoginComp() {
         <TextField
           id="password_login"
           label="Password"
-          helperText="Enter password"
           onChange={handlePassword}
           type="password"
           onKeyPress={(e) => {
