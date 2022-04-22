@@ -42,7 +42,7 @@ function CreateAccountComp() {
     ) {
       setCheckLogin(true);
       handleCreateUser();
-      // history.push(`/ewce`);
+      history.push(`/ewce/Home`);
     }
   };
 
