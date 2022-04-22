@@ -121,7 +121,8 @@ function LoginComp() {
       default:
         break;
     }
-    // history.push(`/ewce`);
+
+    history.push(`/ewce`);
   };
 
   const handleLogin = (event) => {
