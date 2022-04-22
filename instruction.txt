@@ -8,7 +8,31 @@ Instruction
 3. npm run build (build project)
 4. npm start (start the app locally)
 5. after commit to branch and pull request into the main branch
-6. npm deploy (deploy app to github pages)
+6. npm run deploy (deploy app to github pages)
 
 all style and component can be found in mui.com
 - you can simply copy the code they have and modify it
+
+** Server **
+
+1. cd into the sever folder
+2. npm run seed (dummy data)
+3. npm install
+4. npm start
+
+** start mamp
+** check services if mongodb server is running
+
+
+program need to download
+- mongodb (community)
+- mamp (free version)
+- robot 3t
+- insomnia or post man
+
+//update instruction 3/21
+(in the root folder)
+npm run build
+npm run develop (start both the front end and the back end)
+**check inside Home.js file to see how to use API call request**
+**all api request is in the utils/API.js file**

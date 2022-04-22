@@ -1,88 +1,44 @@
-import React, { useState, useEffect } from "react";
-import { TextField, Grid, Container, Button } from "@mui/material";
+import React, { useState } from "react";
+import { Grid, Container, ButtonBase } from "@mui/material";
 
-import { useHistory } from "react-router-dom";
+import LoginComp from "../components/LoginComp";
+import CreateAccountComp from "../components/CreateAccountComp";
 
 function Login() {
-  const [username, setUsername] = useState();
-  const [password, setPassword] = useState();
-  const [checkLogin, setCheckLogin] = useState(false);
-  const [loginMessage, setLoginMessage] = useState("");
+  const [createAcc, changeCreateAcc] = useState(false);
 
   //history is use to navigate to the next page
-  const history = useHistory();
-
-  useEffect(() => {
-    setUsername("");
-    setPassword("");
-    setCheckLogin(false);
-    setLoginMessage("");
-  }, []);
-
-  const handleUsername = (event) => {
-    setUsername(event.target.value);
-    setLoginMessage("");
-  };
-
-  const handlePassword = (event) => {
-    setPassword(event.target.value);
-    setLoginMessage("");
-  };
-
-  //history.push move you to a different url or pages
-  const handleLogin = (event) => {
-    if (username === "test" && password === "password") {
-      setLoginMessage("Login Success");
-      setCheckLogin(true);
-      history.push(`/ewce`);
-    } else if (username === "") {
-      setLoginMessage("*** Username required ***");
-    } else if (password === "") {
-      setLoginMessage("*** Password required ***");
-    } else {
-      setLoginMessage("Incorrect Username or Password");
-    }
-  };
+  // const history = useHistory();
 
   return (
     <Container sx={{ textAlign: "center" }} spacing={2}>
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
-          <TextField
-            id="username_login"
-            label="Username"
-            helperText="Enter test"
-            onChange={handleUsername}
-            onKeyPress={(e) => {
-              if (e.key === "Enter") {
-                handleLogin();
-              }
-            }}
-          />
+      {createAcc ? (
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <CreateAccountComp />
+            <Grid item xs={12} sx={{ mt: 2 }}>
+              <ButtonBase
+                onClick={() => changeCreateAcc(false)}
+                variant="contained"
+              >
+                Already have an account? Click here to login
+              </ButtonBase>
+            </Grid>
+          </Grid>
         </Grid>
-        <Grid item xs={12}>
-          <TextField
-            id="password_login"
-            label="Password"
-            helperText="Enter password"
-            onChange={handlePassword}
-            type="password"
-            onKeyPress={(e) => {
-              if (e.key === "Enter") {
-                handleLogin();
-              }
-            }}
-          />
+      ) : (
+        <Grid container spacing={2}>
+          <LoginComp />
+          <Grid item xs={12} sx={{ mt: 2 }}>
+            <ButtonBase
+              onClick={() => changeCreateAcc(true)}
+              variant="contained"
+            >
+              Don't have an account? Click to create an account
+            </ButtonBase>
+          </Grid>
         </Grid>
-        <Grid item xs={12}>
-          <Button onClick={handleLogin} variant="contained">
-            Login
-          </Button>
-        </Grid>
-        <Grid item xs={12}>
-          {checkLogin ? <div></div> : <div>{loginMessage}</div>}
-        </Grid>
-      </Grid>
+      )}
     </Container>
   );
 }

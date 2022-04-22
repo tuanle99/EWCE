@@ -10,6 +10,44 @@ We propose an application to empower waste collection entrepreneurs to create th
 
 # Release Notes Section
 
+## Version 0.4.0
+
+### New Features
+
+- Login Database Created
+- Bin Statistics 
+
+### Bug Fixes
+
+- CSS Clean Up
+
+### Known Issues
+
+- Navigation Bar
+
+## Version 0.3.0
+
+### New Features
+
+- Database creation (see API.js)
+- Updated Home Page
+
+### Bug Fixes
+
+- change "Active Request" page to "Bin Status" page
+- CSS Clean Up
+
+## Version 0.2.0
+
+### New Features
+
+- Active Request Page now switch to Bin Status Page
+- Voucher Page
+- Waste Statistics Page
+- Consumer statistics page
+
+### Bug Fixes
+
 ## Version 0.1.0
 
 ### New Features

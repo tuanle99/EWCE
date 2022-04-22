@@ -1,0 +1,28 @@
+{
+  "name": "ewce",
+  "version": "1.0.0",
+  "description": "In many emerging markets, formal municipal solid waste infrastructure is often inadequate leading to littering and pollution of the environment, with the lowest-income communities often being the most impacted. Informal waste systems exist in these markets, where waste-picker collectives will pick through and collect the more valuable material waste (i.e. metal, more valuable plastics, cardboard) for sale, which leaves behind materials with limited to no value for recycling. These “no-value” materials include single use products and packaging which are not easily recycled. If monetary value could be assigned to these “no-value” materials, then collection would significantly increase and they could be directed to specialized recovery and recycling facilities.",
+  "main": "index.js",
+  "scripts": {
+    "watch": "nodemon",
+    "start": "node server/server.js",
+    "develop": "concurrently \"cd server && npm start\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "build": "cd client && npm run build",
+    "seed": "cd server && npm run seed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tuanle99/ewce.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tuanle99/ewce/issues"
+  },
+  "homepage": "https://github.com/tuanle99/ewce#readme",
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "nodemon": "^2.0.3"
+  }
+}

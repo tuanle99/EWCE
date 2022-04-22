@@ -1,10 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Box, Grid } from "@mui/material";
 import { PieChart } from "react-minimal-pie-chart";
 import moment from "moment";
 import RequestContainer from "../components/RequestContainer";
 
+import API from "../utils/API";
+
 function Home() {
+  const [coordinatorData, setCoordinatorData] = useState();
+
+  useEffect(() => {
+    API.getCoordinators()
+      .then(
+        (res) => {
+          console.log(res.data);
+          setCoordinatorData(res);
+        },
+        (error) => {
+          console.log(error);
+        }
+      )
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <Container sx={{ mt: 5 }}>
       <h2>{moment().format("MMMM YYYY")} Statistics</h2>

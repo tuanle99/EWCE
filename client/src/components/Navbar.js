@@ -15,16 +15,14 @@ import {
   ButtonBase,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Notifications, Home } from "@mui/icons-material";
 
 const pages = [
-  "Active Requests",
+  "Bin Status",
   "Collector Status",
   "Waste Statistics",
   "Consumer Statistics",
   "Voucher Dispensary",
 ];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Navbar() {
   const history = useHistory();
@@ -56,8 +54,8 @@ function Navbar() {
 
   function navigate(link) {
     switch (link) {
-      case "Active Requests":
-        history.push("/ewce/ActiveRequests");
+      case "Bin Status":
+        history.push("/ewce/BinStatus");
         break;
       case "Collector Status":
         history.push("/ewce/Collector");
@@ -179,11 +177,22 @@ function Navbar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
+              <MenuItem>
+                <Typography textAlign="center">Profile</Typography>
+              </MenuItem>
+              <MenuItem>
+                <Typography textAlign="center">Account</Typography>
+              </MenuItem>
+              <MenuItem>
+                <Typography textAlign="center">Dashboard</Typography>
+              </MenuItem>
+              <MenuItem
+                onClick={() => {
+                  history.push("/ewce");
+                }}
+              >
+                <Typography textAlign="center">Logout</Typography>
+              </MenuItem>
             </Menu>
           </Box>
         </Toolbar>
