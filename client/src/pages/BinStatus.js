@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container, Button, Menu, MenuItem, Grid, ButtonBase } from "@mui/material";
 import BinContainer from "../components/BinContainer";
-import CreateBinContainer from "../components/CreateBinContainer";
+import { useHistory } from "react-router-dom";
 
 let dummydata = [
   {
@@ -27,6 +27,7 @@ let dummydata = [
 ];
 
 function BinStatus() {
+  const history = useHistory();
   const [anchorEl, setAnchorEl] = useState(null);
   const [list, setList] = useState(dummydata);
   const [sortType, setSortType] = useState("");
@@ -89,6 +90,16 @@ function BinStatus() {
   };
   return (
     <Container>
+      <Container sx={{ textAlign: "center" }} spacing={2}>
+          <ButtonBase
+            onClick={(event) => {
+              history.push("/ewce/BinCreation");
+            }}
+          >
+            Create a Bin!
+          </ButtonBase>
+      </Container>
+      
       <Button
         id="sort-button"
         aria-controls={open ? "demo-positioned-menu" : undefined}
@@ -128,35 +139,6 @@ function BinStatus() {
           );
         })}
       </Container>
-
-        <Container sx={{ textAlign: "center" }} spacing={2}>
-          {changeCreateBin ? (
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <CreateBinContainer />
-                <Grid item xs={12} sx={{ mt: 2}}>
-                  <ButtonBase
-                    onClick={() => changeCreateBin(true)}
-                    variant="contained"
-                  >
-                    Click Here to Create A Bin!
-                  </ButtonBase>
-                </Grid>
-              </Grid>
-            </Grid>
-          ) : (
-          <Grid container spacing={2}>
-            <Grid item xs={12} sx={{ mt: 2 }}>
-            <ButtonBase
-              onClick={() => changeCreateBin(false)}
-              variant="contained"
-            >
-              Return to Bin Status!
-            </ButtonBase>
-          </Grid>
-        </Grid>
-          )}
-        </Container>
       
     </Container>
   );

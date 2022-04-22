@@ -10,6 +10,7 @@ import Collector from "./pages/Collector";
 import Voucher from "./pages/Voucher";
 import WasteStats from "./pages/WasteStats";
 import ConsumerStats from "./pages/ConsumerStats";
+import BinCreation from "./pages/BinCreation";
 
 //set up path for each pages to navigate to
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route exact path="/ewce/WasteStats" component={WasteStats} />
         <Route exact path="/ewce/ConsumerStats" component={ConsumerStats} />
         <Route exact path="/ewce/Voucher" component={Voucher} />
+        <Route exact path="/ewce/BinCreation" component={BinCreation} />
       </Switch>
     </Router>
   );
