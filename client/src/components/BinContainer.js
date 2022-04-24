@@ -7,10 +7,9 @@ import {
   FormControlLabel,
   Radio
 } from "@mui/material";
-import API from "../utils/API";
 
 function BinContainer(props) {
-  const { binNumber, binType, status, address } = props;
+  const { key, binNumber, binType, status, address, totalAmount, lastCollected } = props;
   const [anchorEl, setAnchorEl] = useState(null);
   const [state, setState] = useState({status});
   const open = Boolean(anchorEl);
@@ -44,6 +43,8 @@ function BinContainer(props) {
       <ul>
         {address != null ? <li>Address: {address}</li> : ""}
         {status != null ? <li>Status: {status}</li> : ""}
+        {totalAmount != null ? <li>Total Amount: {totalAmount}</li> : ""}
+        {lastCollected != null ? <li>Last Collected: {lastCollected}</li> : ""}
       </ul>
     </Container>
       <FormControl>
