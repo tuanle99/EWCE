@@ -9,15 +9,9 @@ import {
 } from "@mui/material";
 
 function BinContainer(props) {
-  const {
-    key,
-    binNumber,
-    binType,
-    status,
-    address,
-    totalAmount,
-    lastCollected,
-  } = props;
+
+  const { binNumber, binType, status, address, totalAmount, lastCollected } = props;
+
   const [anchorEl, setAnchorEl] = useState(null);
   const [state, setState] = useState({ status });
   const open = Boolean(anchorEl);

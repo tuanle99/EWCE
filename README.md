@@ -31,6 +31,18 @@ We propose an application to empower waste collection entrepreneurs to create th
 
 # Release Notes
 
+## Version 1.0.0
+
+### New Features
+- Added creation of bins
+
+### Bug Fixes
+- View Waste Statistics with database
+- View bin database
+
+### Known Issues
+- Sort button on bin status
+
 ## Version 0.4.0
 
 ### New Features
@@ -80,3 +92,28 @@ We propose an application to empower waste collection entrepreneurs to create th
 ### Bug Fixes
 
 - Link fix between navigation bar and pages
+
+## Installation Information
+
+### Pre-Requisites
+ - Node.js is needed
+ - a text editor (preferably Visual Studio Code)
+
+### Dependencies
+
+ - MongoDB (Community)
+ - Mamp (Free Version)
+ - Robot 3T
+ - Insomnia or Post Man (Program made with Insomnia so it is preferred)
+
+### Running the Code with Backend
+
+ - Start MAMP
+ - Connect MongoDB and Robot 3T
+
+Within Visual Studio Code, cd to server folder of where you extracted provided zip.
+
+In the Visual Studio Code Terminal enter the following:
+ - npm install (this updates npm)
+ - npm run build
+ - npm run develop
