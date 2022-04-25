@@ -13,7 +13,7 @@ We propose an application to empower waste collection entrepreneurs to create th
 ## Version 1.0.0
 
 ### New Features
-- Added creaion of bins
+- Added creation of bins
 
 ### Bug Fixes
 - View Waste Statistics with database
