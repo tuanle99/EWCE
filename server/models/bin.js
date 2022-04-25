@@ -9,6 +9,12 @@ const binSchema = new Schema({
   assign_to: { type: mongoose.Schema.Types.ObjectId, ref: 'Collector' },
   type: { type: String, required: true },
   total_amount: { type: Number, required: true },
+  collection_history: [
+    {
+      amount: {type: Number},
+      date: {type: Date}
+    }
+  ]
 });
 
 const Bin = mongoose.model('Bin', binSchema);
