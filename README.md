@@ -10,9 +10,9 @@ We propose an application to empower waste collection entrepreneurs to create th
 
 # Table of Contents
 
-[Installation Guide](#installation-guide)
-[Command to Run](#command-to-run)
-[Release Notes](#release-notes)
+- [Installation Guide](#installation-guide)
+- [Command to Run](#command-to-run)
+- [Release Notes](#release-notes)
 
 # Installation Guide
 
