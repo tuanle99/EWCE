@@ -9,7 +9,9 @@ import {
 } from "@mui/material";
 
 function BinContainer(props) {
+
   const { binNumber, binType, status, address, totalAmount, lastCollected } = props;
+
   const [anchorEl, setAnchorEl] = useState(null);
   const [state, setState] = useState({ status });
   const open = Boolean(anchorEl);
@@ -41,8 +43,14 @@ function BinContainer(props) {
       >
         {binType} Bin {binNumber}
         <ul>
-          {address !== "" ? <li>Address: {address}</li> : ""}
-          {status !== "" ? <li>Status: {status}</li> : ""}
+          {address != null ? <li>Address: {address}</li> : ""}
+          {status != null ? <li>Status: {status}</li> : ""}
+          {totalAmount != null ? <li>Total Amount: {totalAmount}</li> : ""}
+          {lastCollected != null ? (
+            <li>Last Collected: {lastCollected}</li>
+          ) : (
+            ""
+          )}
         </ul>
       </Container>
       <FormControl>
