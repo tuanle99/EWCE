@@ -8,7 +8,28 @@ We propose an application to empower waste collection entrepreneurs to create th
 
 [Deploy Link](https://tuanle99.github.io/ewce/)
 
-# Release Notes Section
+# Table of Contents
+
+[Installation Guide](#installation-guide)
+[Command to Run](#command-to-run)
+[Release Notes](#release-notes)
+
+# Installation Guide
+
+- mongodb (community)
+- mamp (free version)
+- robot 3t / studio 3t
+- insomnia or postman (or any kind of platform for building and calling APIs)
+- node.js
+
+# Command to run
+
+1. npm install (install dependecies packages)
+2. npm run build (build the app)
+3. npm run seed (create initial dummy data for the database)
+4. npm run develop (run the front-end and back-end of the app)
+
+# Release Notes
 
 ## Version 1.0.0
 
@@ -27,7 +48,7 @@ We propose an application to empower waste collection entrepreneurs to create th
 ### New Features
 
 - Login Database Created
-- Bin Statistics 
+- Bin Statistics
 
 ### Bug Fixes
 
