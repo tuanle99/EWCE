@@ -1,17 +1,22 @@
 import React, { useState } from "react";
-import { 
+import {
   Container,
   RadioGroup,
   FormControl,
   FormLabel,
   FormControlLabel,
-  Radio
+  Radio,
 } from "@mui/material";
 
 function BinContainer(props) {
+<<<<<<< HEAD
+  const { binNumber, binType, status, address } = props;
+  console.log(props);
+=======
   const { key, binNumber, binType, status, address, totalAmount, lastCollected } = props;
+>>>>>>> b4f90d03f9940b87cd8814d110387d852234b353
   const [anchorEl, setAnchorEl] = useState(null);
-  const [state, setState] = useState({status});
+  const [state, setState] = useState({ status });
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -35,6 +40,18 @@ function BinContainer(props) {
       sx={{ mt: 1, p: 1 }}
       style={{ backgroundColor: "#34eb6b", borderRadius: 10 }}
     >
+<<<<<<< HEAD
+      <Container
+        sx={{ mt: 1, p: 1 }}
+        style={{ backgroundColor: "#34eb6b", borderRadius: 10 }}
+      >
+        {binType} Bin {binNumber}
+        <ul>
+          {address !== "" ? <li>Address: {address}</li> : ""}
+          {status !== "" ? <li>Status: {status}</li> : ""}
+        </ul>
+      </Container>
+=======
     <Container
       sx={{ mt: 1, p: 1 }}
       style={{ backgroundColor: "#34eb6b", borderRadius: 10 }}
@@ -47,6 +64,7 @@ function BinContainer(props) {
         {lastCollected != null ? <li>Last Collected: {lastCollected}</li> : ""}
       </ul>
     </Container>
+>>>>>>> b4f90d03f9940b87cd8814d110387d852234b353
       <FormControl>
         <FormLabel id="demo-radio-buttons-group-label">Status</FormLabel>
         <RadioGroup
@@ -58,9 +76,24 @@ function BinContainer(props) {
           open={open}
           OnClick={handleClick}
         >
-          <FormControlLabel value="Full" control={<Radio />} label="Full" onClick={handleClick}/>
-          <FormControlLabel value="Partially Full" control={<Radio />} label="Partially Full" onClick={handleClick} />
-          <FormControlLabel value="Empty" control={<Radio />} label="Empty" onClick={handleClick}/>
+          <FormControlLabel
+            value="Full"
+            control={<Radio />}
+            label="Full"
+            onClick={handleClick}
+          />
+          <FormControlLabel
+            value="Partially Full"
+            control={<Radio />}
+            label="Partially Full"
+            onClick={handleClick}
+          />
+          <FormControlLabel
+            value="Empty"
+            control={<Radio />}
+            label="Empty"
+            onClick={handleClick}
+          />
         </RadioGroup>
       </FormControl>
     </Container>
