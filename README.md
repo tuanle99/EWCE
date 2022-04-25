@@ -10,6 +10,18 @@ We propose an application to empower waste collection entrepreneurs to create th
 
 # Release Notes Section
 
+## Version 1.0.0
+
+### New Features
+- Added creaion of bins
+
+### Bug Fixes
+- View Waste Statistics with database
+- View bin database
+
+### Known Issues
+- Sort button on bin status
+
 ## Version 0.4.0
 
 ### New Features
